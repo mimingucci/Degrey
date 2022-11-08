@@ -1,0 +1,10 @@
+.row-grid{
+    width: 100%;
+    padding: 0 -5px;
+    display: flex;
+}
+.row-grid .col-2-4{
+    width: 20%;
+    max-width: 20%;
+    margin: 0 5px;
+}
