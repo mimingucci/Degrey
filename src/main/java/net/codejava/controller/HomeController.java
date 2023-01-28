@@ -77,6 +77,7 @@ public class HomeController {
 	public String homePage(HttpServletRequest request) {
 		Cookie[] cookie = request.getCookies();
 		Map<Integer, Integer> listIdItems = new HashMap<>();
+		if(cookie!=null)
 		for (Cookie cook : cookie) {
 			if (cook.getName().contains("items")) {
 				System.out.println(cook.getName());

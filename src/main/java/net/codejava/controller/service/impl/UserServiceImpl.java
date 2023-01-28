@@ -15,10 +15,10 @@ import net.codejava.degreymodal.User;
 @Service
 public class UserServiceImpl implements UserService{
     
-    private UserDAOImpl userDAO;
+    private UserDAO userDAO;
     
     @Autowired
-	public UserServiceImpl(UserDAOImpl userDAO) {
+	public UserServiceImpl(UserDAO userDAO) {
 		super();
 		this.userDAO = userDAO;
 	}

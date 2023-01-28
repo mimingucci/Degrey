@@ -18,10 +18,10 @@ import net.codejava.degreymodal.Item;
 public class ItemsServiceImpl implements ItemsService{
     
     
-    private ItemDAOImpl itemsDAO;
+    private ItemDAO itemsDAO;
     
     @Autowired
-	public ItemsServiceImpl(ItemDAOImpl itemsDAO) {
+	public ItemsServiceImpl(ItemDAO itemsDAO) {
 		super();
 		this.itemsDAO = itemsDAO;
 	}
