@@ -16,6 +16,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@ComponentScan("net.codejava")
 @EnableTransactionManagement
 public class AppContext {
    @Bean
@@ -32,7 +33,7 @@ public class AppContext {
    public DataSource dataSource() {
        DriverManagerDataSource dataSource = new DriverManagerDataSource();
        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-       dataSource.setUrl("jdbc:mysql://localhost:3306/degrey");
+       dataSource.setUrl("jdbc:mysql://localhost:4306/degrey");
        dataSource.setUsername("root");
        dataSource.setPassword("toivaban12345");
        return dataSource;

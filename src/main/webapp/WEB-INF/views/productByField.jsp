@@ -113,7 +113,7 @@
             </p><p>₫</p>
           </div>
           <div style="height: 40px;">
-          <button style="height: 100%; width: 100%; background-color: #ff0000; border: none; color: #fff;"><a style="font-size: 18px;"><span>XEM VÀO GIỎ</span></a></button> 
+          <button style="height: 100%; width: 100%; background-color: #ff0000; border: none; color: #fff;"><a style="font-size: 18px;"><span><a href="handleSubmit">XEM VÀO GIỎ</a></span></a></button> 
           </div>
          
         </div>

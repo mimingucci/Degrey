@@ -2,12 +2,12 @@ package net.codejava.degreyothers;
 
 import java.util.Comparator;
 
-import net.codejava.degreymodal.items;
+import net.codejava.degreymodal.Item;
 
-public class sortById implements Comparator<items>{
+public class sortById implements Comparator<Item>{
 
 	@Override
-	public int compare(items o1, items o2) {
+	public int compare(Item o1, Item o2) {
 		return o1.getId()-o2.getId();
 	}
   
