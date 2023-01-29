@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import net.codejava.degreymodal.Item;
 
@@ -57,7 +58,7 @@ public class ItemDAOImpl implements ItemDAO {
 	@Override
 	public List<Item> listItemsByType(String kind) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "FROM items WHERE type='" + kind + "'";
+		String sql = "FROM Item WHERE type='" + kind + "'";
 
 		return (List<Item>) session.createQuery(sql, Item.class).list();
 	}
@@ -67,6 +68,16 @@ public class ItemDAOImpl implements ItemDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(session.get(Item.class, id));
 		session.close();
+	}
+
+	@Override
+	public List<Item> findItemByKeyword(String keyword) {
+		Session session=sessionFactory.getCurrentSession();
+		String hql="FROM Item WHERE name LIKE '%"+keyword+"%'";
+		Query query=session.createQuery(hql);
+		//query.setParameter("keyword", keyword);
+		List<Item> items=query.getResultList();
+		return items;
 	}
 
 }

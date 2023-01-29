@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import net.codejava.controller.service.ItemsService;
@@ -52,6 +53,11 @@ public class ItemsServiceImpl implements ItemsService{
 	public List<Item> listItemsByType(String type) {
 		// TODO Auto-generated method stub
 		return itemsDAO.listItemsByType(type);
+	}
+
+	@Override
+	public List<Item> findByKeyword(String keyword) {
+		return itemsDAO.findItemByKeyword(keyword);
 	}
 	
 //	@Override

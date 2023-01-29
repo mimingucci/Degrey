@@ -177,10 +177,11 @@
         </div>
         <div class="body-search">
           <div class="input-search">
-            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-
-            <input type="text" placeholder="Tìm kiếm sản phẩm..." />
-          </div>
+				  <form action="search" method="get" class="form">
+				     <button type="submit" style="width: 5%; height: 100%; border: none; text-align: center; background-color: white; margin-left: 5px;"><i class="fa-solid fa-magnifying-glass" style="text-align: center; font-size: 1.5rem; background-color: white; color: #c5cee0;"></i></button>
+				     <input type="text" name="keyword" class="keyword" style="height: 100%; width: 90%;  border: none; outline: none; height: 40px; font-size: 1.4rem; margin-left: 20px;" placeholder="Tìm kiếm sản phẩm...">
+				  </form>
+				</div>
           <div class="list-items__search">
             <h6>Gợi ý cho bạn:</h6>
             <p>ÁO | CLOTHES</p>

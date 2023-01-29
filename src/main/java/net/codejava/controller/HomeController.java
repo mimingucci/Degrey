@@ -1,7 +1,11 @@
 package net.codejava.controller;
 
+import java.math.BigDecimal;
 import java.nio.file.Path;
+import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -112,4 +116,62 @@ public class HomeController {
 		return "redirect:/detailproduct?id=" + String.valueOf(id);
 	}
 
+	@GetMapping("/search")
+	public ModelAndView findItemByKeyword(@RequestParam("keyword") String keyword, HttpServletRequest request) {
+		ModelAndView SearchPage = new ModelAndView("search");
+		List<Item> items=itemsService.findByKeyword(keyword);
+		if(items.size()==0) {
+          SearchPage.addObject("keyword", keyword);
+          SearchPage.addObject("quantity", 0);
+          return SearchPage;
+		}
+		Cookie[] cookies = request.getCookies();
+		List<AbstractMap.SimpleEntry<Item, Integer>> addedItems = new ArrayList<AbstractMap.SimpleEntry<Item, Integer>>();
+		//List<Item> listItems = itemsService.listItems();
+		List<AbstractMap.SimpleEntry<Item, Integer>> listItemsByTypeAndFilter = new ArrayList<AbstractMap.SimpleEntry<Item, Integer>>();
+		BigDecimal totalTemp = new BigDecimal(0);
+		for (Cookie ck : cookies) {
+			if (ck.getName().contains("items")) {
+				int iD = Integer.parseInt(ck.getName().substring(5));
+				Item itemsTemp = itemsService.getItems(iD);
+				int quanTiTy = Integer.parseInt(ck.getValue());
+				itemsTemp.setType(itemsTemp.getType().toLowerCase());
+				totalTemp = totalTemp.add(itemsTemp.getPrice().multiply(BigDecimal.valueOf(quanTiTy)));
+				addedItems.add(new AbstractMap.SimpleEntry<>(itemsTemp, quanTiTy));
+			}
+		}
+
+		Comparator<Item> compareByIdAndField = Comparator.comparing(Item::getType).thenComparing(Item::getId);
+		Collections.sort(items, compareByIdAndField);
+		String type = items.get(0).getType().toLowerCase();
+		int pivot = 1;
+		for (Item it : items) {
+			if (it.getType().toLowerCase().equals(type)) {
+				it.setType(it.getType().toLowerCase());
+				listItemsByTypeAndFilter.add(new AbstractMap.SimpleEntry<>(it, pivot));
+
+			} else {
+				it.setType(it.getType().toLowerCase());
+				pivot = 1;
+				listItemsByTypeAndFilter.add(new AbstractMap.SimpleEntry<>(it, pivot));
+
+			}
+			++pivot;
+			type = it.getType().toLowerCase();
+		}
+
+		int n = items.size() / 5;
+		if (items.size() % 5 != 0) {
+			++n;
+		}
+		SearchPage.addObject("quantity", items.size());
+        SearchPage.addObject("keyword", keyword);
+		SearchPage.addObject("listItems", listItemsByTypeAndFilter);
+		SearchPage.addObject("rows", n - 1);
+		SearchPage.addObject("addedItems", addedItems);
+		SearchPage.addObject("totalTemp", totalTemp);
+		SearchPage.addObject("quantityOfItems", addedItems.size());
+		return SearchPage;
+		
+	}
 }

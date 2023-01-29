@@ -36,7 +36,7 @@
         }
     </style>
 
-<title>HỆ THỐNG CỬA HÀNG DEGREY</title>
+<title>KẾT QUẢ TÌM KIẾM ${keyword}</title>
 
 </head>
 <body>
@@ -53,7 +53,7 @@
 			<a href="product" style="text-decoration: none;"><div class="nav__bar-item" style="height: 100%">
 				<p>Sản phẩm</p>
 			</div></a>
-			<div class="nav__bar-item active">
+			<div class="nav__bar-item">
 				<p>Store</p>
 			</div>
 			<a href="intro" style="text-decoration: none;"><div class="nav__bar-item" style="height: 100%">
@@ -158,115 +158,52 @@
 	</div>
 	<div class="app">
 		<div class="layer hidden"></div>
-
-
-		<!-- Trang San Pham -->
-
-		<!-- /Trang San Pham -->
-		<!--Trang Store-->
-		<div class="store-container" style="margin-top: 100px">
-			<div class="redirect-pre__sanpham-container">
-				<a href="">Trang chủ</a>
-				<p>/ HỆ THỐNG CỬA HÀNG DEGREY</p>
-			</div>
-			<div class="main__store-container">
-				<div class="left__main__store-container">
-					<div class="left__main__store-container-address">
-						<h2>HỆ THỐNG CỬA HÀNG DEGREY</h2>
-						<div class="left__main__store-container-detail__address">
-							<h4>SÀI GÒN:</h4>
-							<ul>
-								<li>Q.Phú Nhuận: 43 Huỳnh Văn Bánh</li>
-								<li>Q.Tân Phú: 1041 Lũy Bán Bích</li>
-								<li>Q.1: 26 Lý Tự Trọng (TNP)</li>
-							</ul>
-						</div>
-						<div class="left__main__store-container-detail__address">
-							<h4>ĐÀ LẠT :</h4>
-							<ul>
-								<li>Phường 1: 11 Khu Hoà Bình</li>
-
-							</ul>
-						</div>
-						<h5>Hotline: 0336311117</h5>
-					</div>
-					<div class="left__main__store-container-social__media">
-						<p>
-							<img
-								src="<c:url value="/resources/asset/image/fb_15215b561f504b139fdb35856eaa7290_icon.webp"/>"
-								alt=""> <a href="">https://www.facebook.com/degrey.saigon</a>
-						</p>
-						<hr>
-						<p>
-							<img src="<c:url value="/resources/asset/image/insta.webp"/>"
-								alt=""> <a href="">https://www.instagram.com/degrey.saigon/</a>
-						</p>
-						<hr>
-						<p>
-							<img src="<c:url value="/resources/asset/image/tiktok.webp"/>"
-								alt=""> <a href="">https://www.tiktok.com/@degrey.vn</a>
-						</p>
-						<hr>
-						<p>
-							<img src="<c:url value="/resources/asset/image/youtube.webp"/>"
-								alt=""> <a href=""> https://www.youtube.com/degreyvn</a>
-						</p>
-						<hr>
-						<p>
-							<img src="<c:url value="/resources/asset/image/shopee.webp"/>"
-								alt=""> <a href="">https://shopee.vn/degrey.vn</a>
-						</p>
-						<hr>
-						<p>
-							<img src="<c:url value="/resources/asset/image/lazada.webp"/>"
-								alt=""> <a href="">
-								https://www.lazada.vn/shop/degrey-vietnam/</a>
-						</p>
-					</div>
-				</div>
-				<div class="right__main__store-container">
-					<div class="right__main__store-container-page">
-						<h3>Danh mục page</h3>
-						<hr>
-						<p>
-							SẢN PHẨM DEGREY <i class="fa-solid fa-plus"></i>
-						</p>
-						<hr>
-						<p>
-							STORE | CỬA HÀNG <i class="fa-solid fa-plus"></i>
-						</p>
-						<hr>
-						<p>DEGREY | ABOUT US</p>
-					</div>
-					<a href=""><img
-						src="<c:url value="/resources/asset/image/z3509830781478_ce69b71da0bf0aafd5d6455921bb9d4e_88f55bac63264b9c94bb5795b6a402d4.webp"/>"
-						alt=""></a>
-				</div>
-			</div>
+		<div style="margin: 100px 0; text-align: center;">
+		   <h1 style="font-weight: 700">Tìm kiếm</h1>
+		   <h4>Có ${quantity} sản phẩm cho tìm kiếm</h4>
 		</div>
-		<!--Trang Store-->
+	    <div class="container-module">
+					
+					<c:forEach varStatus="numberRow" begin="0" end="${rows}">
+					  <div class="row-grid">
+					    <c:forEach varStatus="position" begin="${numberRow.index*5}" end="${numberRow.index*5+4}">
+					    <c:if test="${listItems[position.index].key!=null}">
+					    <div class="col-2-4">
+							<div class="item">
+							  <a href="detailproduct?id=${listItems[position.index].key.id}" style="text-decoration: none;">
+							  
+							  <div class="image-item">
+							  
+							  <div><img
+										src='
+										<c:url value="/resources/asset/image/${listItems[position.index].key.type}/${listItems[position.index].key.type}${listItems[position.index].value}/${listItems[position.index].key.type}${listItems[position.index].value}.webp"/> 
+										'
+										alt=""></div>
+										<div><img
+										src='
+										<c:url value="/resources/asset/image/${listItems[position.index].key.type}/${listItems[position.index].key.type}${listItems[position.index].value}/${listItems[position.index].key.type}${listItems[position.index].value}.jpeg"/> 
+										'
+										alt=""></div>
+								</div>
+								<div class="short__descrition-item">
+									<p>${listItems[position.index].key.name}</p>
+									<p style="font-weight: 600;">${listItems[position.index].key.price}đ</p>
+								</div>
+							  </a>
+								
+							</div>
+						</div>
+					   </c:if>
+					       
+					    </c:forEach>
+					  </div>
+					</c:forEach>
+					
+				</div>
+		
 
 		<div class="footer ">
-			<div class="pre-footer hidden ">
-				<h4>Set đồ gợi ý</h4>
-				<div class="row ">
-					<div class="col-4 ">
-						<img
-							src="<c:url value="/resources/asset/image/pre-footer1.webp"/>"
-							alt=" ">
-					</div>
-					<div class="col-4 ">
-						<img
-							src="<c:url value="/resources/asset/image/pre-footer2.webp"/>"
-							alt=" ">
-					</div>
-					<div class="col-4 ">
-						<img
-							src="<c:url value="/resources/asset/image/pre-footer3.webp"/>"
-							alt=" ">
-					</div>
-				</div>
-			</div>
+			
 			<div class="main-footer ">
 				<div class="row ">
 					<div class="col-3 ">

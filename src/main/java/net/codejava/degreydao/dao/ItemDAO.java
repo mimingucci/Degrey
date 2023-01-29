@@ -1,5 +1,8 @@
 package net.codejava.degreydao.dao;
 import java.util.List;
+
+import org.springframework.data.domain.Pageable;
+
 import net.codejava.degreymodal.Item;
 
 public interface ItemDAO {
@@ -9,4 +12,5 @@ public interface ItemDAO {
 	public void saveItems(Item it);
 	public List<Item> listItemsByType(String kind);
 	public void deleteItems(int id);
+	public List<Item> findItemByKeyword(String keyword);
 }
