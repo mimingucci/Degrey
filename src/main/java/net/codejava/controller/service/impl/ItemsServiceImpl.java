@@ -15,13 +15,13 @@ import net.codejava.degreydao.dao.ItemDAOImpl;
 import net.codejava.degreyexception.ExceptionError;
 import net.codejava.degreyexception.TypeException;
 import net.codejava.degreymodal.Item;
+
 @Service
-public class ItemsServiceImpl implements ItemsService{
-    
-    
-    private ItemDAO itemsDAO;
-    
-    @Autowired
+public class ItemsServiceImpl implements ItemsService {
+
+	private ItemDAO itemsDAO;
+
+	@Autowired
 	public ItemsServiceImpl(ItemDAO itemsDAO) {
 		super();
 		this.itemsDAO = itemsDAO;
@@ -39,14 +39,14 @@ public class ItemsServiceImpl implements ItemsService{
 
 	@Override
 	public List<Item> listItems() {
-		
+
 		return itemsDAO.listItems();
 	}
 
 	@Override
 	public void saveItems(Item it) {
 		itemsDAO.saveItems(it);
-		
+
 	}
 
 	@Override
@@ -59,7 +59,20 @@ public class ItemsServiceImpl implements ItemsService{
 	public List<Item> findByKeyword(String keyword) {
 		return itemsDAO.findItemByKeyword(keyword);
 	}
-	
+
+	@Override
+	public void classifyItemByType(List<Item> balos, List<Item> jackets, List<Item> madmonks, List<Item> pants,
+			List<Item> bags) {
+		List<Item> items = itemsDAO.listItems();
+		for (int i = 0; i < items.size(); i++) {
+                if(items.get(i).getType().equals("BALO"))balos.add(items.get(i));
+                if(items.get(i).getType().equals("JACKET"))jackets.add(items.get(i));
+                if(items.get(i).getType().equals("MADMONKS"))madmonks.add(items.get(i));
+                if(items.get(i).getType().equals("PANTS"))pants.add(items.get(i));
+                if(items.get(i).getType().equals("BAG"))bags.add(items.get(i));
+		}
+	}
+
 //	@Override
 //	public items getItems(int id) {
 //		long iD=id;

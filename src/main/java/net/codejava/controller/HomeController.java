@@ -78,17 +78,30 @@ public class HomeController {
 	}
 
 	@GetMapping(value = "/home")
-	public String homePage(HttpServletRequest request) {
-		Cookie[] cookie = request.getCookies();
-		Map<Integer, Integer> listIdItems = new HashMap<>();
-		if(cookie!=null)
-		for (Cookie cook : cookie) {
-			if (cook.getName().contains("items")) {
-				System.out.println(cook.getName());
-			}
-			System.out.println(cook.getValue());
-		}
-		return "home";
+	public ModelAndView homePage(HttpServletRequest request) {
+		
+//		Cookie[] cookie = request.getCookies();
+//		Map<Integer, Integer> listIdItems = new HashMap<>();
+//		if(cookie!=null)
+//		for (Cookie cook : cookie) {
+//			if (cook.getName().contains("items")) {
+//				System.out.println(cook.getName());
+//			}
+//			System.out.println(cook.getValue());
+//		}
+		ModelAndView home=new ModelAndView("home");
+		List<Item> balos=new ArrayList<>();
+		List<Item> madmonks=new ArrayList<>();
+		List<Item> pants=new ArrayList<>();
+		List<Item> jackets=new ArrayList<>();
+		List<Item> bags=new ArrayList<>();
+		itemsService.classifyItemByType(balos, jackets, madmonks, pants, bags);
+		home.addObject("balos", balos.subList(0, 5));
+		home.addObject("pants", pants.subList(0, 5));
+		home.addObject("madmonks", madmonks.subList(0, 5));
+		home.addObject("jackets", jackets.subList(0, 5));
+		home.addObject("bags", bags.subList(0, 5));
+		return home;
 	}
 
 	@GetMapping("/delete")

@@ -359,254 +359,143 @@ body {
 						<a href="product/balo">BACKPACKS | BALO</a>
 					</div>
 					<div class="all-items">
-						<a href="product/balo">Xem tất cả</a>
+						<a href="productByField?item=balo">Xem tất cả</a>
 					</div>
 				</div>
 			 <div class="row-grid">
-			    <div class="col-2-4">
+			 
+			    <c:forEach varStatus="i" begin="0" end="4" items="${balos}" var="balo">
+			        <div class="col-2-4">
 						<div class="item">
 							<div class="image-item">
+								 <div>
+								 <img
+									src="<c:url value="/resources/asset/image/balo/balo${i.count}/balo${i.count}.webp"/>"
+									alt="">
+									</div>
+							<div>
 								<img
-									src="<c:url value="/resources/asset/image/Screenshot (210).png"/>"
+									src="<c:url value="/resources/asset/image/balo/balo${i.count}/balo${i.count}.jpeg"/>"
 									alt="">
 							</div>
+							</div>
 							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">250,000₫</p>
+								<p>${balo.name}</p>
+								<p style="font-weight: 600;">${balo.price}₫</p>
 							</div>
 						</div>
 					</div>
+			    </c:forEach>
+			   
 			 </div>
 			</div>
 			<div class="container-module">
-				<div class="header-container-module">
+			<div class="header-container-module">
 					<div class="name-title">
-						<a href="">ÁO THUN | TSHIRT</a>
+						<a href="product/balo">TSHIRT | JACKET</a>
 					</div>
 					<div class="all-items">
-						<a href="">Xem tất cả</a>
+						<a href="productByField?item=jacket">Xem tất cả</a>
 					</div>
 				</div>
-				<div class="row-grid">
-					<div class="col-2-4">
+			 <div class="row-grid">
+			 
+			    <c:forEach varStatus="i" begin="0" end="4" items="${jackets}" var="jacket">
+			        <div class="col-2-4">
 						<div class="item">
 							<div class="image-item">
+								 <div>
+								 <img
+									src="<c:url value="/resources/asset/image/jacket/jacket${i.count}/jacket${i.count}.webp"/>"
+									alt="">
+									</div>
+							<div>
 								<img
-									src="<c:url value="/resources/asset/image/Screenshot (210).png"/>"
+									src="<c:url value="/resources/asset/image/jacket/jacket${i.count}/jacket${i.count}.jpeg"/>"
 									alt="">
 							</div>
+							</div>
 							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">250,000₫</p>
+								<p>${jacket.name}</p>
+								<p style="font-weight: 600;">${jacket.price}₫</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (203).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">250,000₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (206).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">250,000₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (207).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">250,000₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (208).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">250,000₫</p>
-							</div>
-						</div>
-					</div>
-				</div>
-      <div style="width: 460px; margin-left: auto;margin-right: auto; margin-top: 10px; margin-bottom: 30px;"> 
-      <button type="submit" class="addToCart" style="width: 460px"><span><b>XEM THÊM SẢN PHẨM</b> ÁO THUN | TSHIRT</span></button>
-      </div>
-				
+			    </c:forEach>
+			   
+			 </div>
 			</div>
+			
 			<div class="container-module">
 				<div class="header-container-module">
 					<div class="name-title">
 						<a href="">PANTS | QUẦN</a>
 					</div>
 					<div class="all-items">
-						<a href="">Xem tất cả</a>
+						<a href="productByField?item=pants">Xem tất cả</a>
 					</div>
 				</div>
 				<div class="row-grid">
-					<div class="col-2-4">
+					<c:forEach varStatus="i" begin="0" end="4" items="${pants}" var="pant">
+			        <div class="col-2-4">
 						<div class="item">
 							<div class="image-item">
+								 <div>
+								 <img
+									src="<c:url value="/resources/asset/image/pants/pants${i.count}/pants${i.count}.webp"/>"
+									alt="">
+									</div>
+							<div>
 								<img
-									src="<c:url value="/resources/asset/image/Screenshot (211).png"/>"
+									src="<c:url value="/resources/asset/image/pants/pants${i.count}/pants${i.count}.jpeg"/>"
 									alt="">
 							</div>
+							</div>
 							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">390,000₫</p>
+								<p>${pant.name}</p>
+								<p style="font-weight: 600;">${pant.price}₫</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (214).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">260,000₫</p>
-							</div>
-						</div>
+			    </c:forEach>
+				
+			</div>
+			</div>
+			<div class="container-module">
+			<div class="header-container-module">
+					<div class="name-title">
+						<a href="product/balo">MADMONKS | ORTHERS</a>
 					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (215).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">320,000₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (216).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">320,000₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/Screenshot (217).png"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">260,000₫</p>
-							</div>
-						</div>
+					<div class="all-items">
+						<a href="productByField?item=madmonks">Xem tất cả</a>
 					</div>
 				</div>
-				<div class="row-grid">
-					<div class="col-2-4">
+			 <div class="row-grid">
+			 
+			    <c:forEach varStatus="i" begin="0" end="4" items="${madmonks}" var="madmonk">
+			        <div class="col-2-4">
 						<div class="item">
 							<div class="image-item">
+								 <div>
+								 <img
+									src="<c:url value="/resources/asset/image/madmonks/madmonks${i.count}/madmonks${i.count}.webp"/>"
+									alt="">
+									</div>
+							<div>
 								<img
-									src="<c:url value="/resources/asset/image/271487233_649768696473866_8993561813827660018_n.jpg"/>"
+									src="<c:url value="/resources/asset/image/madmonks/madmonks${i.count}/madmonks${i.count}.jpeg"/>"
 									alt="">
 							</div>
+							</div>
 							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">+∞₫</p>
+								<p>${madmonk.name}</p>
+								<p style="font-weight: 600;">${madmonk.price}₫</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/272080933_4631202470326117_1474952415700213100_n.jpg"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">+∞₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/ảnh đại diện.jpg"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">+∞₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4 hidden">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/ảnh đại diện.jpg"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">+∞₫</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-2-4 hidden">
-						<div class="item">
-							<div class="image-item">
-								<img
-									src="<c:url value="/resources/asset/image/ảnh đại diện.jpg"/>"
-									alt="">
-							</div>
-							<div class="short__descrition-item">
-								<p>Áo Xấu Lên Bờ Green - AXLB Green</p>
-								<p style="font-weight: 600;">+∞₫</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="footer-header__info-items-lists all-items__module">
-					<button>XEM THÊM SẢN PHẨM ÁO THUN | TSHIRT</button>
-				</div>
+			    </c:forEach>
+			   
+			 </div>
 			</div>
 			<div class="container-module">
 				<div class="header-container-module">
@@ -660,9 +549,7 @@ body {
 
 				</div>
 
-				<div class="footer-header__info-items-lists all-items__module">
-					<button>XEM THÊM SẢN PHẨM ÁO THUN | TSHIRT</button>
-				</div>
+			
 			</div>
 		</div>
 		<!-- Trang San Pham -->

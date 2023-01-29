@@ -13,4 +13,5 @@ public interface ItemsService {
     public void saveItems(Item it);
     public List<Item> listItemsByType(String type);
     public List<Item> findByKeyword(String keyword);
+    public void classifyItemByType(List<Item> balos, List<Item> jackets, List<Item> madmonks, List<Item> pants, List<Item> bags);
 }

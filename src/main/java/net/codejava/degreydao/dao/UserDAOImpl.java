@@ -22,5 +22,12 @@ public class UserDAOImpl implements UserDAO{
 		session.getTransaction().commit();
 		session.close();
 	}
+	@Override
+	public User findByEmail(String email) {
+		Session session=sessionFactory.getCurrentSession();
+		String hql="FROM User WHERE email ="+email;
+		User user=session.createQuery(hql, User.class).list().get(0);
+		return user;
+	}
 
 }
